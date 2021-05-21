@@ -10,7 +10,7 @@ pipeline {
     stage('Clean up') {
       agent any
       steps {
-        pwd(tmp: true)
+        deleteDir()
       }
     }
 
