@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes:
+        - id: deducciones-service
+          uri: lb://deducciones-service
+          predicates:
+            - Path=/api/deducciones/**
+          filters:
+            - StripPrefix=2
+        - id: devengados-service
+          uri: lb://devengados-service
+          predicates:
+            - Path=/api/devengados/**
+          filters:
+            - StripPrefix=2
+        - id: customers-service
+          uri: lb://customers-service
+          predicates:
+            - Path=/api/customer/**
+          filters:
+            - StripPrefix=2
