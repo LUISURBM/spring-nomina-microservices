@@ -2,14 +2,14 @@ version: '2'
 
 services:
   config-server:
-    image: springcommunity/spring-nomina-config-server
+    image: localhost:5000/spring-nomina-config-server
     container_name: config-server
     mem_limit: 512M
     ports:
      - 8888:8888
 
   discovery-server:
-    image: springcommunity/spring-nomina-discovery-server
+    image: localhost:5000/spring-nomina-discovery-server
     container_name: discovery-server
     mem_limit: 512M
     depends_on:
@@ -19,7 +19,7 @@ services:
      - 8761:8761
 
   customers-service:
-    image: springcommunity/spring-nomina-customers-service
+    image: localhost:5000/spring-nomina-customers-service
     container_name: customers-service
     mem_limit: 512M
     depends_on:
@@ -30,8 +30,8 @@ services:
     - 8081:8081
 
   visits-service:
-    image: springcommunity/spring-nomina-devengados-service
-    container_name: visits-service
+    image: localhost:5000/spring-nomina-devengados-service
+    container_name: devengados-service
     mem_limit: 512M
     depends_on:
      - config-server
@@ -41,8 +41,8 @@ services:
      - 8082:8082
 
   vets-service:
-    image: springcommunity/spring-nomina-deducciones-service
-    container_name: vets-service
+    image: localhost:5000/spring-nomina-deducciones-service
+    container_name: deducciones-service
     mem_limit: 512M
     depends_on:
      - config-server
@@ -52,7 +52,7 @@ services:
      - 8083:8083
 
   api-gateway:
-    image: springcommunity/spring-nomina-api-gateway
+    image: localhost:5000/spring-nomina-api-gateway
     container_name: api-gateway
     mem_limit: 512M
     depends_on:
@@ -72,7 +72,7 @@ services:
      - 9411:9411
 
   admin-server:
-    image: springcommunity/spring-nomina-admin-server
+    image: localhost:5000/spring-nomina-admin-server
     container_name: admin-server
     mem_limit: 512M
     depends_on:
